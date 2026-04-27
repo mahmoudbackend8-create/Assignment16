@@ -8,4 +8,4 @@ class UserRepo extends DBRepo {
         return (await this.findOne({ filter: { _id: Id } })) != null;
     }
 }
-export default UserRepo;
+export default new UserRepo;

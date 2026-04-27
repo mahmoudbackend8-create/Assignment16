@@ -10,6 +10,8 @@ function GlobalErrHandling(
   res: Response,
   next: NextFunction,
 ) {
+  console.log(error);
+  
   res.status(error.statusCode || 500).json({
     ErrMsg: error.message,
     Stack: error.stack,

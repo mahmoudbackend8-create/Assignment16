@@ -1,5 +1,5 @@
 import { BadRequestExeption } from "../Common/Exeptions/DomainExeption.js";
-import { z } from "zod";
+import { regex, z } from "zod";
 import { UserGender } from "../Common/Enums/User.Enums.js";
 import { error } from "console";
 export function validation(ValidationScema) {
@@ -27,4 +27,5 @@ export const CommonValidationFeilds = {
     Age: z.number().positive(),
     Gender: z.enum(UserGender),
     Phone: z.string(),
+    OTP: z.string().regex(new RegExp(/\d{6}/)),
 };

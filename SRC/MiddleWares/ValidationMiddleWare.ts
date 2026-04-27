@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import { BadRequestExeption } from "../Common/Exeptions/DomainExeption.js";
-import { z, type ZodType } from "zod";
+import { regex, z, type ZodType } from "zod";
 import { UserGender } from "../Common/Enums/User.Enums.js";
 import { error } from "console";
 
@@ -57,6 +57,7 @@ export const CommonValidationFeilds = {
   Age: z.number().positive(),
   Gender: z.enum(UserGender),
   Phone: z.string(),
+  OTP: z.string().regex(new RegExp(/\d{6}/)),
 };
 
 // Record<KeyReqType, ZodType>---keyof Request=> body: --ZodType=> z.strictObject .............

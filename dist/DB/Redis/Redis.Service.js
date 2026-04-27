@@ -42,14 +42,14 @@ class RedisServices {
     BlackListKeys({ userID, TokenID }) {
         return `blackListTokens :: ${userID}::${TokenID}`;
     }
-    getOTPKey({ email, emailType }) {
-        return `OTP::${email}::${emailType}`;
+    getOTPKey({ Email, emailType }) {
+        return `OTP::${Email}::${emailType}`;
     }
-    getOTPKeyAtempsNum({ email, emailType, }) {
-        return `OTP::${email}::${emailType}::NUM`;
+    getOTPKeyAtempsNum({ Email, emailType, }) {
+        return `OTP::${Email}::${emailType}::NUM`;
     }
-    getOTPKeyBlocked({ email, emailType, }) {
-        return `OTP::${email}::${emailType}::BLOCKED`;
+    getOTPKeyBlocked({ Email, emailType, }) {
+        return `OTP::${Email}::${emailType}::BLOCKED`;
     }
 }
 export default new RedisServices();

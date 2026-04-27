@@ -14,7 +14,7 @@ export const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY as string;
 export const USER_TOKEN_SIGNITURE = process.env.USER_TOKEN_SIGNITURE as string;
 export const ADMIN_TOKEN_SIGNITURE = process.env
   .ADMIN_TOKEN_SIGNITURE as string;
-export const GOOGLE_CLIENT_ID = process.env.TOKEN_ID;
+export const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 export const REFRESH_USER_TOKEN_SIGNITURE = process.env
   .REFRESH_USER_TOKEN_SIGNITURE as string;
 export const REFRESH_ADMIN_TOKEN_SIGNITURE = process.env

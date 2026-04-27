@@ -26,3 +26,42 @@ export const SignUpSchema = {
       },
     ),
 };
+
+export const ConfirmEmailOTPSchema = {
+  body: Z.strictObject({
+    Email: CommonValidationFeilds.Email,
+    OTP: CommonValidationFeilds.OTP,
+  }),
+};
+export const ResendConfirmEmailOTPSchema = {
+  body: Z.strictObject({
+    Email: CommonValidationFeilds.Email,
+  }),
+};
+export const ResendForgetOTPSchema = {
+  body: Z.strictObject({
+    Email: CommonValidationFeilds.Email,
+  }),
+};
+export const sendForgetOTPSchema = {
+  body: Z.strictObject({
+    Email: CommonValidationFeilds.Email,
+  }),
+};
+
+export const VarifyForgetPassOTPSchema = {
+  body: Z.strictObject({
+    Email: CommonValidationFeilds.Email,
+    OTP: CommonValidationFeilds.OTP,
+  }),
+};
+export const UpdateForgetPassSchema = {
+  body: VarifyForgetPassOTPSchema.body.extend({
+    Password: CommonValidationFeilds.Password,
+  }),
+};
+export const SignUpWithGemailSchema = {
+  body: Z.object({
+    idToken: Z.string(),
+  }),
+};

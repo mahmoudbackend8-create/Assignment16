@@ -9,8 +9,8 @@ class RedisServices {
   }: {
     key: string;
     value: number | string;
-    EXtype: "EX" | "PX" | "EXAT" | "PXAT";
-    EXvalue: number;
+    EXtype?: "EX" | "PX" | "EXAT" | "PXAT";
+    EXvalue?: number;
   }) {
     return await Client.set(key, value, {
       expiration: { type: EXtype, value: Math.floor(EXvalue) }, // Math.floor(EXvalue) تقريب حتي لا تكون decimal
@@ -58,26 +58,26 @@ class RedisServices {
   BlackListKeys({ userID, TokenID }: { userID: string; TokenID: string }) {
     return `blackListTokens :: ${userID}::${TokenID}`;
   }
-  getOTPKey({ email, emailType }: { email: string; emailType: EmailTypeEnum }) {
-    return `OTP::${email}::${emailType}`;
+  getOTPKey({ Email, emailType }: { Email: string; emailType: EmailTypeEnum }) {
+    return `OTP::${Email}::${emailType}`;
   }
   getOTPKeyAtempsNum({
-    email,
+    Email,
     emailType,
   }: {
-    email: string;
+    Email: string;
     emailType: EmailTypeEnum;
   }) {
-    return `OTP::${email}::${emailType}::NUM`;
+    return `OTP::${Email}::${emailType}::NUM`;
   }
   getOTPKeyBlocked({
-    email,
+    Email,
     emailType,
   }: {
-    email: string;
+    Email: string;
     emailType: EmailTypeEnum;
   }) {
-    return `OTP::${email}::${emailType}::BLOCKED`;
+    return `OTP::${Email}::${emailType}::BLOCKED`;
   }
 }
 
